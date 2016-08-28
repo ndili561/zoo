@@ -26,4 +26,16 @@ public class CongoElephantTest{
     assertEquals("feedElephant", congo.feed());
   }
 
+  @Test
+  public void breedTestName(){
+    BabyElephant baby = congo.breed();
+    assertEquals("john", baby.getName());
+  }
+
+  @Test
+  public void breedTestValue(){
+    BabyElephant baby = congo.breed();
+    assertEquals(234, baby.getValue());
+  }
+
 }

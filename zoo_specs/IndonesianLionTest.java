@@ -21,4 +21,16 @@ public class IndonesianLionTest{
     assertEquals(45, congo.getValue());
   }
 
+  @Test
+  public void breedTestName(){
+    BabyLion baby = congo.breed();
+    assertEquals("john", baby.getName());
+  }
+
+  @Test
+  public void breedTestValue(){
+    BabyLion baby = congo.breed();
+    assertEquals(234, baby.getValue());
+  }
+
 }

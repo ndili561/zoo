@@ -11,8 +11,8 @@ public class CityTest{
 
   @Before
   public void before(){
-  zoo1 = new Zoo(45);
-  zoo2 = new Zoo(50);  
+  zoo1 = new Zoo(45,90);
+  zoo2 = new Zoo(50,90);  
   city = new City("Edinburgh", zoo1, zoo2);
   }
 

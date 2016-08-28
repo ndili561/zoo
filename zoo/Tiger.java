@@ -9,4 +9,9 @@ public abstract class Tiger implements Animal{
   return "feedTiger";
  }
 
+
+ public BabyTiger breed(){
+   return new BabyTiger("john" , 234);
+ }
+
 }

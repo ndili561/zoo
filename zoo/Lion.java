@@ -9,5 +9,9 @@ public abstract class Lion implements Animal{
     return "feedLion";
   }
 
+  public BabyLion breed(){
+    return new BabyLion("john" , 234);
+  }
+
 
 }

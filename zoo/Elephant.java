@@ -9,6 +9,10 @@ public abstract class Elephant implements Animal{
     return "feedElephant";
   }
 
+  public BabyElephant breed(){
+    return new BabyElephant("john" , 234);
+  }
+
  
 
 }

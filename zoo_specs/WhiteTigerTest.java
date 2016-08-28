@@ -20,4 +20,16 @@ public class WhiteTigerTest{
   public void TestValue(){
     assertEquals(45, africa.getValue());
   }
+
+  @Test
+  public void breedTestName(){
+    BabyTiger baby = africa.breed();
+    assertEquals("john", baby.getName());
+  }
+
+  @Test
+  public void breedTestValue(){
+    BabyTiger baby = africa.breed();
+    assertEquals(234, baby.getValue());
+  }
 }

@@ -26,4 +26,16 @@ public class MalesianLionTest{
     assertEquals("feedLion", africa.feed());
   }
 
+  @Test
+  public void breedTestName(){
+    BabyLion baby = africa.breed();
+    assertEquals("john", baby.getName());
+  }
+
+  @Test
+  public void breedTestValue(){
+    BabyLion baby = africa.breed();
+    assertEquals(234, baby.getValue());
+  }
+
 }

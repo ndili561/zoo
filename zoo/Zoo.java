@@ -3,17 +3,23 @@ import java.util.*;
 
 public class Zoo{
   private int cash;
-  private List<Animal>enclosure;
-  private static final int ticketPrice = 90;
+  private List<Animal>enclosureLion;
+  private List<Animal>enclosureTiger;
+  private List<Animal>enclosureElephant;
+  private int ticketPrice;
   private List<Visitor>visitor;
 
 
 
-  public Zoo(int cash){
+  public Zoo(int cash, int ticketPrice){
+    this.ticketPrice = ticketPrice;
     this.cash = cash;
-    this.enclosure = new ArrayList<Animal>();
+    this.enclosureLion = new ArrayList<Animal>();
+    this.enclosureTiger = new ArrayList<Animal>();
+    this.enclosureElephant = new ArrayList<Animal>();
     this.visitor = new ArrayList<Visitor>();
   }
+
 
   public int getTicket(){
     return ticketPrice;
@@ -31,54 +37,67 @@ public class Zoo{
     this.cash = cash;
   }
 
-  public List<Animal> getEnclosure(){
-    return enclosure;
+  public List<Animal> getEnclosureLion(){
+    return enclosureLion;
+  }
+
+  public List<Animal> getEnclosureTiger(){
+    return enclosureTiger;
+  }
+  public List<Animal> getEnclosureElephant(){
+    return enclosureElephant;
   }
 
   public void addToEnclosure(Animal animal){
     if(animal instanceof Lion){
-      enclosure.add(animal);
+      enclosureLion.add(animal);
     }
     if (animal instanceof Elephant){
-      enclosure.add(animal);
+      enclosureElephant.add(animal);
     }
     if (animal instanceof Tiger){
-      enclosure.add(animal);
+      enclosureTiger.add(animal);
     }
   }
 
   public void removeAnimalFromEnclosure(Animal animal){
     if(animal instanceof Lion){
-      enclosure.remove(animal);
+      enclosureLion.remove(animal);
+    }
+    if (animal instanceof Elephant){
+      enclosureElephant.remove(animal);
+    }
+    if (animal instanceof Tiger){
+      enclosureTiger.remove(animal);
     }
   }
 
-  public void sellAnimal(Animal animal){
-    this.cash+=animal.getValue();
-  }
-
-  public void buyAnimal(Animal animal){
-    this.cash-=animal.getValue();
-  }
-
-  public int totalAnimalValue(){
-    int result = this.getCash();
-    for (Animal animal : enclosure){
-      result+=animal.getValue();
+  public void sellAnimal(Animal animal, Zoo zoo){
+    if (zoo.getCash()>=animal.getValue())
+    {
+     this.cash+=animal.getValue();
     }
-    return result;
   }
+
+  public void buyAnimal(Animal animal,Zoo zoo){
+    if(this.getCash()>=animal.getValue()){
+       this.cash-=animal.getValue();
+    }
+  }
+
 
   public void addVisitor(Visitor visitor){
-    this.cash+=ticketPrice;
+     this.cash+=ticketPrice;
      this.visitor.add(visitor);
   }
 
-  public int totalVisitorValue(){
-    int result = this.getCash();
-    for (Visitor visiotor : visitor){
-      result+=ticketPrice;
-    }
-    return result;
+  public List<Animal> createEnclosure(){
+      List<Animal>enclosure = new ArrayList<Animal>();
+      return enclosure;
   }
+
+  public void exitVisitor(Visitor visitor){
+    this.visitor.remove(visitor);
+  }
+
 }
